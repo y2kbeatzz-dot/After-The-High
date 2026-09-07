@@ -1,0 +1,9 @@
+{
+  "name": "AFTER THE HIGH — Drug Awareness",
+  "short_name": "AFTER THE HIGH",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#070707",
+  "description": "Interactive drug-awareness experience created by Crystal."
+}
