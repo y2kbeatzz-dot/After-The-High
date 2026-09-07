@@ -13,180 +13,101 @@
 <link rel="manifest" href="site.webmanifest">
 <title>AFTER THE HIGH — Crystal</title>
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#050505;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}
-a{color:inherit}
-nav{position:fixed;z-index:40;top:0;left:0;right:0;padding:20px 4vw;display:flex;justify-content:space-between;gap:20px;mix-blend-mode:difference;font-weight:900;font-size:13px;letter-spacing:.08em}
-.hero{height:100vh;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle,#351019,#080607 58%)}
-h1{font-size:clamp(70px,15vw,220px);line-height:.72;letter-spacing:-.08em;text-align:center;margin:0;position:relative;z-index:3}
-.outline{-webkit-text-stroke:1px #fff;color:transparent;display:block}
-.pill{position:absolute;width:120px;height:48px;border-radius:99px;background:linear-gradient(90deg,#eee 50%,#ef3d59 50%);box-shadow:0 25px 60px #000;animation:float 6s ease-in-out infinite}
-.p1{left:9%;top:30%;rotate:-25deg}.p2{right:10%;bottom:25%;rotate:25deg;scale:.75}
-@keyframes float{50%{translate:0 -25px;rotate:12deg}}
-.hint{position:absolute;bottom:7%;color:#aaa;letter-spacing:.25em;font-size:11px}
-.story{height:1400vh;position:relative}
-.stage{height:100vh;position:sticky;top:0;overflow:hidden;perspective:1200px;background:radial-gradient(circle,var(--c,#7d1d2b),#090909 58%)}
-.scene{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);align-items:center;gap:6vw;padding:11vh 7vw 7vh;opacity:0;pointer-events:none}
-.copy{position:relative;z-index:6;max-width:760px}
-.copy h2{font-size:clamp(50px,8.5vw,128px);line-height:.82;letter-spacing:-.07em;margin:0;text-transform:uppercase}
-.copy p{max-width:650px;margin:28px 0 0;color:#d2d2d2;line-height:1.65;font-size:clamp(15px,1.3vw,18px)}
-.visual-rail{position:relative;z-index:2;display:grid;place-items:center;min-height:55vh;transform-style:preserve-3d}
-.obj{position:relative;opacity:0;will-change:transform,opacity;pointer-events:none;filter:drop-shadow(0 28px 35px #0009)}
-.round{width:160px;height:160px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#8bc1ff,#315fa8);display:grid;place-items:center;font-size:34px;font-weight:1000}
-.powder{width:260px;height:160px;border-radius:20px;background:#161616}
-.powder:after{content:"";position:absolute;width:130px;height:55px;border-radius:50%;background:#eee;left:55px;top:60px}
-.crystal{width:100px;height:190px;background:linear-gradient(130deg,#dff8ff,#64b9e6,#fff);clip-path:polygon(50% 0,100% 25%,80% 100%,20% 100%,0 25%)}
-.cap{width:220px;height:85px;border-radius:99px;background:linear-gradient(90deg,#eee 50%,#a62d49 50%)}
-.cup{width:180px;height:240px;border:4px solid #ddd;border-radius:20px 20px 40px 40px;background:linear-gradient(transparent 30%,#70228f 31%,#39064d)}
-.bar{width:270px;height:85px;border-radius:15px;background:repeating-linear-gradient(90deg,#eee 0 65px,#aaa 66px 69px)}
-.pink{width:150px;height:150px;border-radius:35px;background:#e83f8a;display:grid;place-items:center;font-size:60px}
-.vial{width:110px;height:210px;border:4px solid #dcecff;border-radius:18px;background:#78c8ff55}
-.bottle{width:120px;height:250px;border-radius:20px;background:linear-gradient(90deg,#633813,#bb7730,#633813)}
-.spray{width:135px;height:230px;border-radius:25px;background:#eee;color:#111;display:grid;place-items:center;font-weight:1000;padding:18px;text-align:center}
-.pulse{width:220px;height:90px;border:2px solid #ff5d6c;border-radius:18px;display:grid;place-items:center;font-weight:900;letter-spacing:.18em;background:#15090c}
-.mix{width:180px;height:180px;border-radius:50%;border:18px double #f05;display:grid;place-items:center;font-weight:1000;font-size:38px}
-.cards,.memorial,.recovery,.help{padding:12vh 6vw}
-.cards h2,.memorial h2,.recovery h2,.help h2{font-size:clamp(55px,9vw,130px);letter-spacing:-.06em;line-height:.85;margin:0 0 50px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-.card{border:1px solid #ffffff20;padding:28px;min-height:220px;background:#0b0b0b}
-.card b{font-size:24px}.card p{color:#aaa;line-height:1.6}
-.person{display:grid;grid-template-columns:1fr 2fr 2fr;gap:20px;border-top:1px solid #ffffff25;padding:22px 0}
-.recovery{background:linear-gradient(180deg,#090909,#17080d 55%,#090909)}
-.sober-count{font-size:clamp(84px,18vw,260px);font-weight:1000;letter-spacing:-.09em;line-height:.75;margin:10px 0 40px;background:linear-gradient(180deg,#fff,#ff6a7a);-webkit-background-clip:text;color:transparent}
-.recovery-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.75fr);gap:6vw;align-items:start}
-.recovery-copy{max-width:780px}
-.recovery-copy p{font-size:clamp(17px,1.7vw,22px);line-height:1.75;color:#d7d7d7;margin:0 0 26px}
-.quote-card{position:sticky;top:120px;border:1px solid #ffffff22;background:#0e0e0e;padding:30px}
-.quote-card small{color:#ff7888;font-weight:900;letter-spacing:.14em}
-.quote-card strong{display:block;font-size:clamp(30px,4vw,58px);line-height:.95;margin-top:18px}
-.help{background:#eee;color:#111}
-.help p{max-width:780px;line-height:1.7;font-size:18px}
-.credit{padding:45px 6vw;border-top:1px solid #ffffff22;display:flex;justify-content:space-between;gap:25px}
-.credit strong{font-size:clamp(25px,4vw,50px)}
-@media(max-width:850px){
-  .scene{grid-template-columns:1fr;align-content:center;gap:3vh;padding:12vh 7vw 6vh;text-align:left}
-  .copy{max-width:none}
-  .visual-rail{min-height:22vh;place-items:center end}
-  .obj{transform-origin:center;scale:.72}
-  .recovery-wrap{grid-template-columns:1fr}.quote-card{position:relative;top:auto}
-}
-@media(max-width:650px){
-  nav{font-size:10px;padding:16px 5vw}
-  .person,.credit{grid-template-columns:1fr;display:grid}
-  .story{height:1400vh}
-  .scene{padding-top:13vh}
-  .copy h2{font-size:clamp(46px,14vw,78px)}
-  .copy p{margin-top:20px;font-size:15px}
-  .visual-rail{min-height:18vh;place-items:center}
-  .obj{scale:.55}
-}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#050505;color:#fff;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden}a{color:inherit;text-decoration:none}
+nav{position:fixed;z-index:40;top:0;left:0;right:0;padding:20px 4vw;display:flex;justify-content:space-between;gap:20px;mix-blend-mode:difference;font-weight:900;font-size:13px;letter-spacing:.08em}.navlinks{display:flex;gap:18px}
+.hero{height:100vh;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(circle,#351019,#080607 58%)}h1{font-size:clamp(70px,15vw,220px);line-height:.72;letter-spacing:-.08em;text-align:center;margin:0;position:relative;z-index:3}.outline{-webkit-text-stroke:1px #fff;color:transparent;display:block}.pill{position:absolute;width:120px;height:48px;border-radius:99px;background:linear-gradient(90deg,#eee 50%,#ef3d59 50%);box-shadow:0 25px 60px #000;animation:float 6s ease-in-out infinite}.p1{left:9%;top:30%;rotate:-25deg}.p2{right:10%;bottom:25%;rotate:25deg;scale:.75}@keyframes float{50%{translate:0 -25px;rotate:12deg}}.hint{position:absolute;bottom:7%;color:#aaa;letter-spacing:.25em;font-size:11px}
+.story{height:1400vh;position:relative}.stage{height:100vh;position:sticky;top:0;overflow:hidden;perspective:1200px;background:radial-gradient(circle,var(--c,#7d1d2b),#090909 58%)}.scene{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);align-items:center;gap:6vw;padding:11vh 7vw 7vh;opacity:0;pointer-events:none}.copy{position:relative;z-index:6;max-width:760px}.copy h2{font-size:clamp(50px,8.5vw,128px);line-height:.82;letter-spacing:-.07em;margin:0;text-transform:uppercase}.copy p{max-width:650px;margin:28px 0 0;color:#d2d2d2;line-height:1.65;font-size:clamp(15px,1.3vw,18px)}.visual-rail{position:relative;z-index:2;display:grid;place-items:center;min-height:55vh;transform-style:preserve-3d}.obj{position:relative;opacity:0;will-change:transform,opacity;pointer-events:none;filter:drop-shadow(0 28px 35px #0009)}
+.round{width:160px;height:160px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#8bc1ff,#315fa8);display:grid;place-items:center;font-size:34px;font-weight:1000}.powder{width:260px;height:160px;border-radius:20px;background:#161616}.powder:after{content:"";position:absolute;width:130px;height:55px;border-radius:50%;background:#eee;left:55px;top:60px}.crystal{width:100px;height:190px;background:linear-gradient(130deg,#dff8ff,#64b9e6,#fff);clip-path:polygon(50% 0,100% 25%,80% 100%,20% 100%,0 25%)}.cap{width:220px;height:85px;border-radius:99px;background:linear-gradient(90deg,#eee 50%,#a62d49 50%)}.cup{width:180px;height:240px;border:4px solid #ddd;border-radius:20px 20px 40px 40px;background:linear-gradient(transparent 30%,#70228f 31%,#39064d)}.bar{width:270px;height:85px;border-radius:15px;background:repeating-linear-gradient(90deg,#eee 0 65px,#aaa 66px 69px)}.pink{width:150px;height:150px;border-radius:35px;background:#e83f8a;display:grid;place-items:center;font-size:60px}.vial{width:110px;height:210px;border:4px solid #dcecff;border-radius:18px;background:#78c8ff55}.bottle{width:120px;height:250px;border-radius:20px;background:linear-gradient(90deg,#633813,#bb7730,#633813)}.spray{width:135px;height:230px;border-radius:25px;background:#eee;color:#111;display:grid;place-items:center;font-weight:1000;padding:18px;text-align:center}.pulse{width:220px;height:90px;border:2px solid #ff5d6c;border-radius:18px;display:grid;place-items:center;font-weight:900;letter-spacing:.18em;background:#15090c}.mix{width:180px;height:180px;border-radius:50%;border:18px double #f05;display:grid;place-items:center;font-weight:1000;font-size:38px}
+.recovery,.catalog,.memorial,.help{padding:12vh 6vw}.eyebrow{font-size:12px;letter-spacing:.32em;font-weight:1000;color:#ff7888;margin-bottom:24px}.recovery{background:linear-gradient(180deg,#090909,#250b13 50%,#090909);border-top:1px solid #ffffff20;border-bottom:1px solid #ffffff20}.recovery h2,.catalog h2,.memorial h2,.help h2{font-size:clamp(55px,9vw,130px);letter-spacing:-.06em;line-height:.85;margin:0 0 50px}.sober-count{font-size:clamp(100px,22vw,320px);font-weight:1000;letter-spacing:-.1em;line-height:.7;margin:18px 0 48px;background:linear-gradient(180deg,#fff,#ff6077);-webkit-background-clip:text;color:transparent}.recovery-wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:6vw}.recovery-copy{max-width:850px}.recovery-copy p{font-size:clamp(18px,1.8vw,23px);line-height:1.75;color:#ddd;margin:0 0 26px}.story-quote{border-left:4px solid #ff6077;padding:6px 0 6px 24px;font-size:clamp(24px,3vw,44px);line-height:1.15;font-weight:800;margin:36px 0}.quote-card{align-self:start;position:sticky;top:110px;border:1px solid #ffffff22;background:#0d0d0d;padding:30px}.quote-card small{color:#ff7888;font-weight:900;letter-spacing:.15em}.quote-card strong{display:block;font-size:clamp(30px,4vw,58px);line-height:.95;margin-top:18px}
+.catalog{background:#070707}.catalog-intro{max-width:760px;color:#aaa;line-height:1.7;font-size:18px;margin-top:-20px;margin-bottom:42px}.drug-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}.drug-card{border:1px solid #ffffff1c;background:#0b0b0b;padding:26px;min-height:210px}.drug-card b{font-size:23px;display:block;margin-bottom:10px}.drug-card span{display:block;font-size:11px;color:#ff7182;letter-spacing:.15em;font-weight:900;margin-bottom:12px}.drug-card p{color:#aaa;line-height:1.55;margin:0}.person{display:grid;grid-template-columns:1fr 1fr 2fr;gap:20px;border-top:1px solid #ffffff25;padding:22px 0}.help{background:#eee;color:#111}.help p{max-width:800px;line-height:1.7;font-size:18px}.credit{padding:45px 6vw;border-top:1px solid #ffffff22;display:flex;justify-content:space-between;gap:25px}.credit strong{font-size:clamp(25px,4vw,50px)}
+@media(max-width:850px){.scene{grid-template-columns:1fr;align-content:center;gap:3vh;padding:12vh 7vw 6vh}.visual-rail{min-height:22vh;place-items:center end}.obj{transform-origin:center;scale:.72}.recovery-wrap{grid-template-columns:1fr}.quote-card{position:relative;top:auto}.navlinks a:nth-child(1){display:none}}
+@media(max-width:650px){nav{font-size:10px;padding:16px 5vw}.person,.credit{grid-template-columns:1fr;display:grid}.story{height:1400vh}.scene{padding-top:13vh}.copy h2{font-size:clamp(46px,14vw,78px)}.copy p{margin-top:20px;font-size:15px}.visual-rail{min-height:18vh;place-items:center}.obj{scale:.55}.drug-grid{grid-template-columns:1fr}.sober-count{font-size:34vw}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<nav><span>AFTER THE HIGH.</span><span>CRYSTAL © 2026</span></nav>
-<header class="hero">
-  <div class="pill p1"></div><div class="pill p2"></div>
-  <h1>AFTER<span class="outline">THE HIGH</span></h1>
-  <div class="hint">SCROLL TO ENTER ↓</div>
-</header>
+<nav><span>AFTER THE HIGH.</span><span class="navlinks"><a href="#my-story">MY STORY</a><a href="#all-drugs">ALL DRUGS</a><a href="#help">HELP</a></span></nav>
+<header class="hero"><div class="pill p1"></div><div class="pill p2"></div><h1>AFTER<span class="outline">THE HIGH</span></h1><div class="hint">SCROLL TO ENTER ↓</div></header>
+<section class="story"><div class="stage">
+<article class="scene" data-color="#7d1d2b"><div class="copy"><h2>Know what<br>you're facing.</h2><p>Drugs can affect breathing, heart rhythm, temperature, judgment and consciousness. Unknown contents and mixing substances can make the outcome harder to predict.</p></div><div class="visual-rail"></div></article>
+<article class="scene" data-color="#253d75"><div class="copy"><h2>Fentanyl</h2><p>Illicit fentanyl is extremely potent and can appear in counterfeit pills and other illegal drugs without someone knowing. Opioid overdose can slow or stop breathing.</p></div><div class="visual-rail"><div class="obj round">M30</div></div></article>
+<article class="scene" data-color="#7c3322"><div class="copy"><h2>Cocaine</h2><p>Cocaine is a powerful stimulant that can sharply raise heart rate and blood pressure and contribute to arrhythmias, seizures, stroke or heart attack.</p></div><div class="visual-rail"><div class="obj powder"></div></div></article>
+<article class="scene" data-color="#28546a"><div class="copy"><h2>Meth</h2><p>Methamphetamine can dangerously increase heart rate, blood pressure and body temperature. Severe effects can include agitation, psychosis, seizures and cardiovascular emergencies.</p></div><div class="visual-rail"><div class="obj crystal"></div></div></article>
+<article class="scene" data-color="#6d2637"><div class="copy"><h2>Heroin & opioids</h2><p>Opioids can suppress the brain's drive to breathe. Heroin, fentanyl and misused prescription opioids can cause fatal overdose, especially when combined with other depressants.</p></div><div class="visual-rail"><div class="obj cap"></div></div></article>
+<article class="scene" data-color="#54226d"><div class="copy"><h2>Lean / codeine</h2><p>Codeine is an opioid. Combining opioids with alcohol, benzodiazepines or other depressants can dangerously slow breathing.</p></div><div class="visual-rail"><div class="obj cup"></div></div></article>
+<article class="scene" data-color="#3c416d"><div class="copy"><h2>Xanax / benzos</h2><p>Benzodiazepines can cause heavy sedation and impaired coordination. Combining them with opioids or alcohol increases overdose risk.</p></div><div class="visual-rail"><div class="obj bar"></div></div></article>
+<article class="scene" data-color="#7c315b"><div class="copy"><h2>MDMA</h2><p>MDMA can raise body temperature and heart rate and affect fluid balance. Products sold as ecstasy or molly may contain unexpected substances.</p></div><div class="visual-rail"><div class="obj pink">♥</div></div></article>
+<article class="scene" data-color="#255e6b"><div class="copy"><h2>Ketamine</h2><p>Ketamine can cause dissociation, impaired awareness and loss of coordination. High exposure or mixing with other depressants can increase danger.</p></div><div class="visual-rail"><div class="obj vial"></div></div></article>
+<article class="scene" data-color="#76521d"><div class="copy"><h2>Alcohol</h2><p>Alcohol is a central nervous system depressant. Alcohol poisoning can suppress breathing and consciousness. Combining it with opioids or sedatives can be especially dangerous.</p></div><div class="visual-rail"><div class="obj bottle"></div></div></article>
+<article class="scene" data-color="#3b4d78"><div class="copy"><h2>Unknown pills</h2><p>Counterfeit pills can look like legitimate medication while containing fentanyl or other unexpected drugs. Appearance alone cannot tell you what is inside.</p></div><div class="visual-rail"><div class="obj round">?</div></div></article>
+<article class="scene" data-color="#6f2531"><div class="copy"><h2>Overdose signs</h2><p>Possible opioid overdose signs include inability to wake, slow or stopped breathing, choking or gurgling sounds, and discolored lips or fingertips.</p></div><div class="visual-rail"><div class="obj pulse">CHECK BREATHING</div></div></article>
+<article class="scene" data-color="#28634f"><div class="copy"><h2>Naloxone saves lives</h2><p>Naloxone can reverse an opioid overdose. Give it if available, call 911, support breathing when appropriate, and stay with the person until help arrives.</p></div><div class="visual-rail"><div class="obj spray">NALOXONE</div></div></article>
+<article class="scene" data-color="#6b263b"><div class="copy"><h2>Mixing changes everything.</h2><p>Using multiple substances can make effects unpredictable. Stimulants do not cancel opioid overdose risk, and depressants can compound breathing suppression.</p></div><div class="visual-rail"><div class="obj mix">×</div></div></article>
+</div></section>
 
-<section class="story">
-<div class="stage">
-  <article class="scene" data-color="#7d1d2b"><div class="copy"><h2>Know what<br>you're facing.</h2><p>Drugs can affect breathing, heart rhythm, temperature, judgment and consciousness. Unknown contents and mixing substances can make the outcome harder to predict.</p></div><div class="visual-rail"></div></article>
-  <article class="scene" data-color="#253d75"><div class="copy"><h2>Fentanyl</h2><p>Illicitly manufactured fentanyl is extremely potent and can appear in counterfeit pills and other illegal drugs without someone knowing. Opioid overdose can slow or stop breathing.</p></div><div class="visual-rail"><div class="obj round">M30</div></div></article>
-  <article class="scene" data-color="#7c3322"><div class="copy"><h2>Cocaine</h2><p>Cocaine is a powerful stimulant. It can sharply raise heart rate and blood pressure and contribute to arrhythmias, seizures, stroke or heart attack. Illicit cocaine may also contain fentanyl.</p></div><div class="visual-rail"><div class="obj powder"></div></div></article>
-  <article class="scene" data-color="#28546a"><div class="copy"><h2>Meth</h2><p>Methamphetamine can dangerously increase heart rate, blood pressure and body temperature. Severe effects can include agitation, psychosis, seizures and cardiovascular emergencies.</p></div><div class="visual-rail"><div class="obj crystal"></div></div></article>
-  <article class="scene" data-color="#6d2637"><div class="copy"><h2>Heroin & opioids</h2><p>Opioids can suppress the brain's drive to breathe. Heroin, fentanyl and misused prescription opioids can cause fatal overdose, especially when combined with other depressants.</p></div><div class="visual-rail"><div class="obj cap"></div></div></article>
-  <article class="scene" data-color="#54226d"><div class="copy"><h2>Lean / codeine</h2><p>Codeine is an opioid. Prescription cough mixtures may also contain other sedating ingredients. Combining opioids with alcohol, benzodiazepines or other depressants can dangerously slow breathing.</p></div><div class="visual-rail"><div class="obj cup"></div></div></article>
-  <article class="scene" data-color="#3c416d"><div class="copy"><h2>Xanax / benzos</h2><p>Benzodiazepines can cause heavy sedation and impaired coordination. Combining them with opioids or alcohol increases the risk of severe respiratory depression and overdose.</p></div><div class="visual-rail"><div class="obj bar"></div></div></article>
-  <article class="scene" data-color="#7c315b"><div class="copy"><h2>MDMA</h2><p>MDMA can raise body temperature and heart rate and affect fluid balance. Products sold as ecstasy or molly may contain unexpected substances.</p></div><div class="visual-rail"><div class="obj pink">♥</div></div></article>
-  <article class="scene" data-color="#255e6b"><div class="copy"><h2>Ketamine</h2><p>Ketamine can cause dissociation, impaired awareness and loss of coordination. High exposure or mixing with other depressants can increase danger.</p></div><div class="visual-rail"><div class="obj vial"></div></div></article>
-  <article class="scene" data-color="#76521d"><div class="copy"><h2>Alcohol</h2><p>Alcohol is a central nervous system depressant. Alcohol poisoning can suppress breathing and consciousness. Combining it with opioids or sedatives can be especially dangerous.</p></div><div class="visual-rail"><div class="obj bottle"></div></div></article>
-  <article class="scene" data-color="#3b4d78"><div class="copy"><h2>Unknown pills</h2><p>Counterfeit pills can look like legitimate medication while containing fentanyl or other unexpected drugs. Appearance alone cannot tell you what is inside.</p></div><div class="visual-rail"><div class="obj round">?</div></div></article>
-  <article class="scene" data-color="#6f2531"><div class="copy"><h2>Overdose signs</h2><p>Possible opioid overdose signs include inability to wake, slow or stopped breathing, choking or gurgling sounds, and discolored lips or fingertips. Treat suspected overdose as an emergency.</p></div><div class="visual-rail"><div class="obj pulse">CHECK BREATHING</div></div></article>
-  <article class="scene" data-color="#28634f"><div class="copy"><h2>Naloxone saves lives</h2><p>Naloxone can reverse an opioid overdose. Give it if available, call 911, support breathing when appropriate, place the person on their side to reduce choking risk, and stay with them until help arrives.</p></div><div class="visual-rail"><div class="obj spray">NALOXONE</div></div></article>
-  <article class="scene" data-color="#6b263b"><div class="copy"><h2>Mixing changes everything.</h2><p>Using multiple substances can make effects unpredictable. Stimulants do not cancel opioid overdose risk, and combinations of depressants can compound breathing suppression.</p></div><div class="visual-rail"><div class="obj mix">×</div></div></article>
-</div>
+<section class="recovery" id="my-story">
+<div class="eyebrow">MY STORY · CRYSTAL</div>
+<div class="sober-count">504</div>
+<h2>DAYS SOBER.</h2>
+<div class="recovery-wrap"><div class="recovery-copy">
+<p>My story is bigger than addiction, but this part of the site is about the part drugs played in it — the escape, the dependence, and what it has taken to stay sober.</p>
+<div class="story-quote">“Sobriety as Sabotage.”</div>
+<p>In the story I wrote, I described reaching <b>eight months without a drop</b>. That was one point in the journey. I kept going.</p>
+<p>Addiction can turn escape into a trap. It can take over your time, your choices, your relationships, your health, and your sense of who you are. Getting sober did not erase everything overnight. It meant learning how to live without reaching for a substance every time life hurt.</p>
+<p>Recovery has meant surviving cravings, choosing not to use on bad days, starting over mentally without starting over physically, and understanding that sobriety is something I protect one day at a time.</p>
+<p><b>Today I am 504 days sober.</b> I put my story here because addiction is not just a statistic and recovery is not just a number. There is a real person behind every one of those days.</p>
+</div><aside class="quote-card"><small>CRYSTAL · 504 DAYS</small><strong>Every day sober is a day addiction did not get to take from me.</strong></aside></div>
 </section>
 
-<section class="cards">
-<h2>More than<br>one drug.</h2>
-<div class="grid">
-  <div class="card"><b>PCP</b><p>Can cause severe confusion, agitation, hallucinations, dangerous behavior and medical emergencies.</p></div>
-  <div class="card"><b>LSD & psilocybin</b><p>Can strongly alter perception and judgment and may cause panic, confusion or dangerous behavior.</p></div>
-  <div class="card"><b>Inhalants</b><p>Concentrated chemical vapors can injure the brain, heart and other organs and can cause sudden death.</p></div>
-  <div class="card"><b>Cannabis / THC</b><p>Can impair reaction time, coordination and judgment and may trigger severe anxiety or confusion in some people.</p></div>
-  <div class="card"><b>Prescription stimulants</b><p>Misuse can raise heart rate, blood pressure and temperature and contribute to agitation or cardiovascular problems.</p></div>
-  <div class="card"><b>Counterfeit drugs</b><p>Color, logo, texture and markings cannot reliably identify the contents of an illicit pill or powder.</p></div>
-</div>
-</section>
+<section class="catalog" id="all-drugs">
+<div class="eyebrow">DRUG & SUBSTANCE INDEX</div><h2>More drugs.<br>More facts.</h2>
+<p class="catalog-intro">No single page can literally list every psychoactive chemical, prescription medicine, analog, or emerging street drug. This index expands the site across the major drug families and commonly encountered substances, with the focus on risks rather than how to use them.</p>
+<div class="drug-grid">
+<div class="drug-card"><span>OPIOID</span><b>Heroin</b><p>Can slow or stop breathing and cause fatal overdose.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Fentanyl</b><p>Extremely potent opioid strongly linked to fatal overdose and counterfeit pills.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Carfentanil</b><p>An exceptionally potent synthetic opioid; exposure can be life-threatening.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Oxycodone / Percocet</b><p>Prescription opioids can cause dependence and respiratory depression when misused.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Hydrocodone / Vicodin</b><p>Can cause dependence, sedation and overdose, especially with other depressants.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Codeine / Lean</b><p>Codeine is an opioid and can suppress breathing, especially in mixtures.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Morphine</b><p>Powerful opioid that can cause dangerous respiratory depression when misused.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Tramadol</b><p>Opioid pain medicine; misuse can cause overdose and seizures.</p></div>
+<div class="drug-card"><span>OPIOID</span><b>Methadone</b><p>Long-acting opioid that can cause fatal overdose if used outside medical guidance.</p></div>
+<div class="drug-card"><span>STIMULANT</span><b>Cocaine / Crack</b><p>Can cause arrhythmia, seizure, stroke, heart attack and addiction.</p></div>
+<div class="drug-card"><span>STIMULANT</span><b>Methamphetamine / Crystal Meth</b><p>Can cause severe cardiovascular stress, overheating, psychosis and addiction.</p></div>
+<div class="drug-card"><span>STIMULANT</span><b>Amphetamine / Adderall misuse</b><p>Misuse can raise heart rate, blood pressure and body temperature.</p></div>
+<div class="drug-card"><span>STIMULANT</span><b>Methylphenidate / Ritalin misuse</b><p>Misuse may cause cardiovascular problems, agitation and dependence.</p></div>
+<div class="drug-card"><span>STIMULANT</span><b>Synthetic cathinones / “Bath salts”</b><p>Can cause severe agitation, paranoia, overheating and dangerous cardiovascular effects.</p></div>
+<div class="drug-card"><span>DEPRESSANT</span><b>Alcohol</b><p>Can cause poisoning, loss of consciousness and slowed breathing.</p></div>
+<div class="drug-card"><span>BENZODIAZEPINE</span><b>Alprazolam / Xanax</b><p>Can cause dependence and dangerous sedation, especially with opioids or alcohol.</p></div>
+<div class="drug-card"><span>BENZODIAZEPINE</span><b>Diazepam / Valium</b><p>Can impair coordination and breathing when combined with other depressants.</p></div>
+<div class="drug-card"><span>BENZODIAZEPINE</span><b>Clonazepam / Klonopin</b><p>Dependence and withdrawal can be serious; mixtures with opioids raise overdose risk.</p></div>
+<div class="drug-card"><span>SEDATIVE</span><b>Barbiturates</b><p>Can severely depress the central nervous system and cause fatal overdose.</p></div>
+<div class="drug-card"><span>SEDATIVE</span><b>Zolpidem / Ambien misuse</b><p>Can cause heavy sedation, memory problems and dangerous impairment.</p></div>
+<div class="drug-card"><span>DISSOCIATIVE</span><b>Ketamine</b><p>Can cause dissociation, impaired awareness, accidents and dangerous sedation.</p></div>
+<div class="drug-card"><span>DISSOCIATIVE</span><b>PCP</b><p>Can cause severe agitation, confusion, hallucinations and unpredictable behavior.</p></div>
+<div class="drug-card"><span>DISSOCIATIVE</span><b>DXM</b><p>High-dose misuse can cause confusion, dissociation, impaired coordination and medical emergencies.</p></div>
+<div class="drug-card"><span>PSYCHEDELIC</span><b>LSD</b><p>Can produce intense perceptual changes, panic and dangerous impairment.</p></div>
+<div class="drug-card"><span>PSYCHEDELIC</span><b>Psilocybin mushrooms</b><p>Can alter perception and judgment and trigger panic or confusion.</p></div>
+<div class="drug-card"><span>PSYCHEDELIC</span><b>DMT</b><p>Produces intense short-lived hallucinations and major changes in perception.</p></div>
+<div class="drug-card"><span>PSYCHEDELIC</span><b>Mescaline / Peyote</b><p>Can cause strong hallucinations, nausea and impaired judgment.</p></div>
+<div class="drug-card"><span>ENTACTOGEN</span><b>MDMA / Ecstasy / Molly</b><p>Can cause overheating, cardiovascular stress and dangerous fluid-balance problems.</p></div>
+<div class="drug-card"><span>CANNABINOID</span><b>Cannabis / THC</b><p>Can impair memory, coordination and reaction time and can trigger severe anxiety in some people.</p></div>
+<div class="drug-card"><span>SYNTHETIC CANNABINOID</span><b>K2 / Spice</b><p>Effects can be unpredictable and may include seizures, psychosis and cardiovascular emergencies.</p></div>
+<div class="drug-card"><span>INHALANT</span><b>Nitrous oxide</b><p>Misuse can cause oxygen deprivation, injury and neurologic complications.</p></div>
+<div class="drug-card"><span>INHALANT</span><b>Solvents / aerosols / gases</b><p>Concentrated vapors can injure the brain, heart and other organs and may cause sudden death.</p></div>
+<div class="drug-card"><span>NICOTINE</span><b>Cigarettes / vapes / nicotine</b><p>Nicotine is highly addictive and tobacco exposure causes major long-term health harm.</p></div>
+<div class="drug-card"><span>OTHER</span><b>GHB / GBL</b><p>Can rapidly cause unconsciousness and dangerous respiratory depression, especially with alcohol.</p></div>
+<div class="drug-card"><span>OTHER</span><b>Kratom</b><p>Can cause dependence and serious adverse effects; products may vary widely in contents.</p></div>
+<div class="drug-card"><span>OTHER</span><b>Tianeptine</b><p>Misuse can produce opioid-like effects, dependence and severe withdrawal.</p></div>
+<div class="drug-card"><span>OTHER</span><b>Gabapentin misuse</b><p>Can increase sedation and breathing risk when combined with opioids or other depressants.</p></div>
+<div class="drug-card"><span>COUNTERFEIT</span><b>Pressed pills</b><p>May contain fentanyl or other unexpected substances despite familiar markings.</p></div>
+<div class="drug-card"><span>POLYSUBSTANCE</span><b>Mixing drugs</b><p>Combining substances can make effects much more dangerous and unpredictable.</p></div>
+</div></section>
 
-<section class="recovery">
-  <div class="sober-count">504</div>
-  <h2>Days sober.<br>Crystal's story.</h2>
-  <div class="recovery-wrap">
-    <div class="recovery-copy">
-      <p>Addiction became a way to disappear from things I did not know how to carry. What started as escape became something that could take my time, my health, my relationships, and eventually my life.</p>
-      <p>There is a part of my story I call <b>“Sobriety as Sabotage.”</b> Early sobriety did not magically make everything easy. Getting clean meant feeling things again instead of trying to numb them. Some days the hardest part was simply choosing not to go back.</p>
-      <p>Recovery has meant learning that cravings can pass, that a bad day does not have to become a relapse, and that surviving addiction is not the end of the story. It is the beginning of having a future to protect.</p>
-      <p>I made this website because drugs are not just statistics. Addiction happens to real people, and the people we lose were more than the substance listed beside their names. If someone reading this is still using, struggling, restarting, or counting their first day: you are still here, and that matters.</p>
-      <p><b>Today I am 504 days sober.</b> I am still counting because every one of those days is something addiction did not get to take from me.</p>
-    </div>
-    <aside class="quote-card"><small>CRYSTAL · RECOVERY</small><strong>“Every day sober is a day addiction did not get to take from me.”</strong></aside>
-  </div>
-</section>
-
-<section class="memorial">
-<h2>They were more<br>than a headline.</h2>
-<div class="person"><strong>Juice WRLD</strong><span>2019 · 21</span><span>Accidental oxycodone and codeine toxicity</span></div>
-<div class="person"><strong>Mac Miller</strong><span>2018 · 26</span><span>Accidental mixed toxicity involving fentanyl, cocaine and alcohol</span></div>
-<div class="person"><strong>Lil Peep</strong><span>2017 · 21</span><span>Accidental overdose involving fentanyl and alprazolam</span></div>
-<div class="person"><strong>Prince</strong><span>2016 · 57</span><span>Accidental fentanyl toxicity</span></div>
-<div class="person"><strong>Tom Petty</strong><span>2017 · 66</span><span>Accidental mixed-drug toxicity</span></div>
-</section>
-
-<section class="help">
-<h2>When seconds<br>matter.</h2>
-<p><b>Suspect an opioid overdose?</b> Give naloxone if available and call 911. Try to keep the person breathing, place them on their side when appropriate to reduce choking risk, and stay until emergency help arrives.</p>
-<p>U.S. treatment support: SAMHSA National Helpline <b>1-800-662-HELP (4357)</b>. For an immediate life-threatening emergency, call <b>911</b>.</p>
-</section>
-
-<footer class="credit">
-<strong>Created & designed by Crystal</strong>
-<span>AFTER THE HIGH · Independent drug-awareness & recovery project · © 2026<br>Information is educational and not a substitute for medical care.</span>
-</footer>
-
+<section class="memorial"><div class="eyebrow">REMEMBERING PEOPLE WE LOST</div><h2>More than<br>a headline.</h2><div class="person"><strong>Juice WRLD</strong><span>2019 · 21</span><span>Accidental oxycodone and codeine toxicity</span></div><div class="person"><strong>Mac Miller</strong><span>2018 · 26</span><span>Accidental mixed toxicity involving fentanyl, cocaine and alcohol</span></div><div class="person"><strong>Lil Peep</strong><span>2017 · 21</span><span>Accidental overdose involving fentanyl and alprazolam</span></div><div class="person"><strong>Prince</strong><span>2016 · 57</span><span>Accidental fentanyl toxicity</span></div><div class="person"><strong>Tom Petty</strong><span>2017 · 66</span><span>Accidental mixed-drug toxicity</span></div></section>
+<section class="help" id="help"><h2>When seconds<br>matter.</h2><p><b>Suspect an opioid overdose?</b> Give naloxone if available and call 911. Try to keep the person breathing, place them on their side when appropriate to reduce choking risk, and stay until emergency help arrives.</p><p>U.S. treatment support: SAMHSA National Helpline <b>1-800-662-HELP (4357)</b>. For an immediate life-threatening emergency, call <b>911</b>.</p></section>
+<footer class="credit"><strong>Created & designed by Crystal</strong><span>AFTER THE HIGH · Independent drug-awareness & recovery project · © 2026<br>Information is educational and not a substitute for medical care.</span></footer>
 <script>
-const story=document.querySelector('.story');
-const stage=document.querySelector('.stage');
-const scenes=[...document.querySelectorAll('.scene')];
-let busy=0;
-function draw(){
-  const r=story.getBoundingClientRect();
-  const p=Math.max(0,Math.min(1,-r.top/Math.max(1,story.offsetHeight-innerHeight)));
-  const pos=p*(scenes.length-1);
-  const active=Math.max(0,Math.min(scenes.length-1,Math.round(pos)));
-  stage.style.setProperty('--c',scenes[active].dataset.color||'#7d1d2b');
-  scenes.forEach((scene,i)=>{
-    const d=i-pos;
-    const a=Math.abs(d);
-    const opacity=Math.max(0,1-a*1.35);
-    scene.style.opacity=opacity;
-    scene.style.visibility=a>1.15?'hidden':'visible';
-    scene.style.transform=`translate3d(0,${d*70}px,0) scale(${1-Math.min(a,.9)*.025})`;
-    const obj=scene.querySelector('.obj');
-    if(obj){
-      obj.style.opacity=Math.max(0,1-a*1.7);
-      obj.style.transform=`translate3d(${d*80}px,${Math.sin(pos+i)*10}px,${(1-a)*100}px) rotateY(${d*-32}deg) rotateZ(${d*12}deg) scale(${.92+Math.max(0,1-a)*.08})`;
-    }
-  });
-  busy=0;
-}
-addEventListener('scroll',()=>{if(!busy){busy=1;requestAnimationFrame(draw)}},{passive:true});
-addEventListener('resize',draw);
-draw();
+const story=document.querySelector('.story'),stage=document.querySelector('.stage'),scenes=[...document.querySelectorAll('.scene')];let busy=0;function draw(){const r=story.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/Math.max(1,story.offsetHeight-innerHeight))),pos=p*(scenes.length-1),active=Math.max(0,Math.min(scenes.length-1,Math.round(pos)));stage.style.setProperty('--c',scenes[active].dataset.color||'#7d1d2b');scenes.forEach((scene,i)=>{const d=i-pos,a=Math.abs(d),opacity=Math.max(0,1-a*1.35);scene.style.opacity=opacity;scene.style.visibility=a>1.15?'hidden':'visible';scene.style.transform=`translate3d(0,${d*70}px,0) scale(${1-Math.min(a,.9)*.025})`;const obj=scene.querySelector('.obj');if(obj){obj.style.opacity=Math.max(0,1-a*1.7);obj.style.transform=`translate3d(${d*60}px,${Math.sin(pos+i)*8}px,${(1-a)*80}px) rotateY(${d*-28}deg) rotateZ(${d*10}deg) scale(${.92+Math.max(0,1-a)*.08})`}});busy=0}addEventListener('scroll',()=>{if(!busy){busy=1;requestAnimationFrame(draw)}},{passive:true});addEventListener('resize',draw);draw();
 </script>
-</body>
-</html>
+</body></html>
