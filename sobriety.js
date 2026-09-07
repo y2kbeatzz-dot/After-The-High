@@ -1,5 +1,6 @@
 (() => {
-  const soberSince = new Date('2025-04-17T00:52:48-04:00');
+  // Crystal's sober start time. The counter always recalculates from this fixed timestamp.
+  const soberSince = new Date('2025-04-18T00:52:48-04:00');
   const root = document.querySelector('#sobriety-live');
   if (root) {
     const units=['years','months','days','hours','minutes','seconds'];
@@ -9,8 +10,22 @@
     const addMonths=(d,n)=>{d=new Date(d);const day=d.getDate();d.setDate(1);d.setMonth(d.getMonth()+n);const max=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();d.setDate(Math.min(day,max));return d};
     const addDays=(d,n)=>{d=new Date(d);d.setDate(d.getDate()+n);return d};
     function diff(start,end){let c=new Date(start),y=end.getFullYear()-c.getFullYear(),t=addYears(c,y);if(t>end){y--;t=addYears(c,y)}c=t;let m=(end.getFullYear()-c.getFullYear())*12+end.getMonth()-c.getMonth();t=addMonths(c,m);if(t>end){m--;t=addMonths(c,m)}c=t;let days=0;while(addDays(c,1)<=end&&days<32){c=addDays(c,1);days++}let ms=end-c,h=Math.floor(ms/3600000);ms-=h*3600000;let min=Math.floor(ms/60000);ms-=min*60000;let s=Math.floor(ms/1000);return{years:y,months:m,days,hours:h,minutes:min,seconds:s}}
-    function tick(){const d=diff(soberSince,new Date());units.forEach(u=>{if(!els[u])return;els[u].querySelector('.sobriety-num').textContent=d[u];els[u].querySelector('.sobriety-label').textContent=`${u.slice(0,-1)}${d[u]===1?'':'s'}`});if(totalDaysEl)totalDaysEl.textContent=Math.floor((Date.now()-soberSince)/86400000).toLocaleString()}
-    tick();setInterval(tick,1000);
+    function tick(){
+      const now=new Date();
+      const d=diff(soberSince,now);
+      units.forEach(u=>{
+        if(!els[u])return;
+        els[u].querySelector('.sobriety-num').textContent=d[u];
+        els[u].querySelector('.sobriety-label').textContent=`${u.slice(0,-1)}${d[u]===1?'':'s'}`;
+      });
+      if(totalDaysEl)totalDaysEl.textContent=Math.floor((now-soberSince)/86400000).toLocaleString();
+    }
+    tick();
+    setInterval(tick,1000);
+    // If a phone/browser sleeps the tab, catch up instantly when it becomes active again.
+    document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
+    window.addEventListener('pageshow',tick);
+    window.addEventListener('focus',tick);
   }
 
   // Guarantee Weed / THC appears as a real scroll stop even if the base scene animation skips it.
