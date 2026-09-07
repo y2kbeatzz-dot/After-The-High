@@ -13,7 +13,8 @@
     tick();setInterval(tick,1000);
   }
 
-  // Expand Crystal's story without creating a second song card.
+  // Expand Crystal's story without creating another song card.
+  // The only song inside MY STORY remains Juice WRLD — Lean Wit Me.
   const recovery = document.querySelector('#my-story');
   if (recovery && !document.querySelector('#crystal-story-extra')) {
     const copy = recovery.querySelector('.recovery-copy');
@@ -28,6 +29,43 @@
       <p>I still count the time because the number means something to me. It is not about pretending everything is fixed. It is proof that I have kept choosing my life over the thing that was taking it away from me. Every hour on that counter is time I got back.</p>
       <p>I also know recovery is not the same for everyone. Some people have years. Some have hours. Some relapse and come back. I do not think somebody's story stops mattering because their counter restarted. What matters is that there is still a person there who can keep going.</p>`;
     if (copy) copy.insertBefore(extra, song || null);
+  }
+
+  // Dedicated cannabis / weed section so it is not buried in one small card.
+  const catalog = document.querySelector('#all-drugs');
+  if (catalog && !document.querySelector('#cannabis-focus')) {
+    const cannabisStyle = document.createElement('style');
+    cannabisStyle.textContent = `
+      .cannabis-focus{padding:11vh 6vw;background:linear-gradient(180deg,#07110b,#0d2115 48%,#080808);border-top:1px solid #ffffff18;border-bottom:1px solid #ffffff18}
+      .cannabis-focus h2{font-size:clamp(55px,9vw,128px);line-height:.84;letter-spacing:-.06em;margin:0 0 24px}
+      .cannabis-intro{max-width:850px;color:#c9c9c9;font-size:clamp(17px,1.6vw,21px);line-height:1.75;margin-bottom:38px}
+      .cannabis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px}
+      .cannabis-card{border:1px solid #ffffff1c;background:#0b100d;padding:24px;min-height:200px}
+      .cannabis-card small{display:block;color:#7ddc9a;font-weight:900;letter-spacing:.14em;font-size:10px;margin-bottom:10px}
+      .cannabis-card b{display:block;font-size:22px;margin-bottom:10px}.cannabis-card p{color:#aaa;line-height:1.6;margin:0}
+      .cannabis-note{max-width:850px;margin-top:28px;color:#888;line-height:1.65;font-size:14px}
+    `;
+    document.head.appendChild(cannabisStyle);
+    const section = document.createElement('section');
+    section.id = 'cannabis-focus';
+    section.className = 'cannabis-focus';
+    section.innerHTML = `
+      <div class="eyebrow" style="color:#7ddc9a">CANNABIS / WEED</div>
+      <h2>WEED COUNTS<br>TOO.</h2>
+      <p class="cannabis-intro">Cannabis is often talked about like it cannot cause problems because its overdose risk is different from opioids or other drugs. But it can still affect memory, reaction time, coordination, judgment, anxiety, mood, and daily functioning. Higher-THC products can produce much stronger effects than people expect.</p>
+      <div class="cannabis-grid">
+        <div class="cannabis-card"><small>CANNABIS</small><b>Marijuana / Weed / Flower</b><p>THC can impair attention, short-term memory, coordination and reaction time. Some people experience anxiety, panic, paranoia or confusion.</p></div>
+        <div class="cannabis-card"><small>EDIBLES</small><b>Gummies / Brownies / Drinks</b><p>Edibles can take longer to feel and may last much longer than inhaled cannabis. That delay can lead people to take more before the first dose has fully taken effect.</p></div>
+        <div class="cannabis-card"><small>HIGH THC</small><b>Dabs / Wax / Shatter / Concentrates</b><p>Concentrates can contain far more THC than traditional flower. Stronger exposure can increase the chance of panic, severe intoxication, vomiting or psychotic-like symptoms in some people.</p></div>
+        <div class="cannabis-card"><small>VAPES</small><b>THC Carts / Pens</b><p>Potency can vary widely, and unregulated products may contain unexpected ingredients or contaminants. THC still impairs driving and reaction time even when it is vaped.</p></div>
+        <div class="cannabis-card"><small>DEPENDENCE</small><b>Cannabis Use Disorder</b><p>Some people develop tolerance, cravings and difficulty cutting down even when cannabis is causing problems with school, work, relationships, sleep or motivation.</p></div>
+        <div class="cannabis-card"><small>CHS</small><b>Cannabinoid Hyperemesis Syndrome</b><p>Long-term frequent cannabis use can be linked to repeated severe nausea and vomiting in some people. Symptoms can become serious enough to require medical care.</p></div>
+        <div class="cannabis-card"><small>MENTAL HEALTH</small><b>Anxiety / Panic / Psychosis Risk</b><p>High doses can trigger intense anxiety, panic or paranoia. Cannabis may also worsen psychotic symptoms in vulnerable people, especially with frequent high-THC use.</p></div>
+        <div class="cannabis-card"><small>SYNTHETIC</small><b>K2 / Spice</b><p>Synthetic cannabinoids are not the same as cannabis. Their effects can be far more unpredictable and may include seizures, severe agitation, psychosis, heart problems or loss of consciousness.</p></div>
+        <div class="cannabis-card"><small>SAFETY</small><b>Driving / Mixing</b><p>Driving while high is unsafe because cannabis affects attention, coordination and reaction time. Mixing cannabis with alcohol or other drugs can increase impairment and unpredictability.</p></div>
+      </div>
+      <p class="cannabis-note">This section is about risk and awareness, not saying cannabis affects everyone the same way. Product strength, frequency of use, age, mental-health vulnerability, other substances and individual biology can all change the experience.</p>`;
+    catalog.parentNode.insertBefore(section, catalog);
   }
 
   if (document.querySelector('#crystal-music-button')) return;
