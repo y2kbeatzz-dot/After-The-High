@@ -13,6 +13,58 @@
     tick();setInterval(tick,1000);
   }
 
+  // Add cannabis/weed to the MAIN animated scroll sequence.
+  const scrollStory = document.querySelector('.story');
+  const scrollStage = document.querySelector('.stage');
+  if (scrollStory && scrollStage && !scrollStage.querySelector('[data-cannabis-scroll]')) {
+    const weedStyle = document.createElement('style');
+    weedStyle.textContent = `
+      .weed-leaf{width:190px;height:190px;display:grid;place-items:center;position:relative}
+      .weed-leaf:before{content:'☘';font-size:175px;line-height:1;color:#7bdc8e;filter:drop-shadow(0 24px 30px #0008);transform:rotate(-8deg)}
+      .weed-badge{position:absolute;right:-8px;bottom:18px;background:#101612;border:1px solid #7bdc8e66;color:#bdf5c7;border-radius:999px;padding:9px 12px;font-size:11px;font-weight:900;letter-spacing:.12em}
+      @media(max-width:650px){.weed-leaf{width:135px;height:135px}.weed-leaf:before{font-size:125px}}
+    `;
+    document.head.appendChild(weedStyle);
+
+    const weedScene = document.createElement('article');
+    weedScene.className = 'scene';
+    weedScene.dataset.color = '#1f5a34';
+    weedScene.setAttribute('data-cannabis-scroll','true');
+    weedScene.innerHTML = `<div class="copy"><h2>Weed / THC</h2><p>Cannabis can affect attention, short-term memory, coordination, reaction time, mood and judgment. High-THC products such as concentrates, dabs and some edibles can hit much harder than expected and may trigger panic, paranoia or severe confusion in some people. Driving while high is unsafe, and frequent use can become difficult to control for some people.</p></div><div class="visual-rail"><div class="obj weed-leaf"><span class="weed-badge">THC</span></div></div>`;
+
+    const alcoholScene = [...scrollStage.querySelectorAll('.scene')].find(s => /Alcohol/i.test(s.textContent));
+    if (alcoholScene) scrollStage.insertBefore(weedScene, alcoholScene);
+    else scrollStage.appendChild(weedScene);
+
+    // Re-run the scroll animation with the new scene included.
+    // This handler is registered after the original one, so it becomes the final visual state each frame.
+    const allScenes = [...scrollStage.querySelectorAll('.scene')];
+    scrollStory.style.height = `${allScenes.length * 100}vh`;
+    let weedBusy = 0;
+    function drawAll(){
+      const r = scrollStory.getBoundingClientRect();
+      const p = Math.max(0,Math.min(1,-r.top/Math.max(1,scrollStory.offsetHeight-innerHeight)));
+      const pos = p*(allScenes.length-1);
+      const active = Math.max(0,Math.min(allScenes.length-1,Math.round(pos)));
+      scrollStage.style.setProperty('--c',allScenes[active].dataset.color || '#7d1d2b');
+      allScenes.forEach((scene,i)=>{
+        const d=i-pos,a=Math.abs(d);
+        scene.style.opacity=Math.max(0,1-a*1.35);
+        scene.style.visibility=a>1.15?'hidden':'visible';
+        scene.style.transform=`translate3d(0,${d*70}px,0)`;
+        const obj=scene.querySelector('.obj');
+        if(obj){
+          obj.style.opacity=Math.max(0,1-a*1.7);
+          obj.style.transform=`translate3d(${d*55}px,${Math.sin(pos+i)*8}px,${(1-a)*70}px) rotateY(${d*-25}deg) rotateZ(${d*8}deg)`;
+        }
+      });
+      weedBusy=0;
+    }
+    addEventListener('scroll',()=>{if(!weedBusy){weedBusy=1;requestAnimationFrame(drawAll)}},{passive:true});
+    addEventListener('resize',drawAll);
+    drawAll();
+  }
+
   // Expand Crystal's story without creating another song card.
   // The only song inside MY STORY remains Juice WRLD — Lean Wit Me.
   const recovery = document.querySelector('#my-story');
