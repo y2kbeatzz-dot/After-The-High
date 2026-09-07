@@ -1,0 +1,10 @@
+{
+  "name": "AFTER THE HIGH — Drug Awareness & Recovery",
+  "short_name": "AFTER THE HIGH",
+  "start_url": "/After-The-High/",
+  "scope": "/After-The-High/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "description": "Interactive drug awareness, overdose prevention, recovery, music, and remembrance project created by Crystal."
+}
