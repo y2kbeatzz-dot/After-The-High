@@ -76,11 +76,80 @@ section.block{padding:11vh 6vw}.eyebrow{font-size:12px;letter-spacing:.32em;font
 #sobriety-live .sobriety-row[data-unit="years"] .sobriety-value{font-size:clamp(42px,7vw,76px);padding:0 34px}
 #sobriety-live .sobriety-row[data-unit="years"] .sobriety-fill{width:100%!important}
 
+
+/* Mobile navigation */
+.mobile-menu-btn{
+  display:none;
+  background:#111;
+  color:#fff;
+  border:1px solid #ffffff2b;
+  border-radius:999px;
+  padding:9px 12px;
+  font-size:16px;
+  line-height:1;
+  cursor:pointer;
+}
+@media(max-width:760px){
+  nav{
+    padding:14px 14px;
+    align-items:center;
+    background:linear-gradient(#050505f2,#050505c7 70%,transparent);
+  }
+  nav>span:first-child{
+    font-size:11px;
+    letter-spacing:.08em;
+    white-space:nowrap;
+  }
+  .mobile-menu-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    z-index:102;
+  }
+  .navlinks{
+    position:fixed;
+    top:0;
+    right:-100%;
+    width:min(82vw,320px);
+    height:100vh;
+    background:#090909f7;
+    border-left:1px solid #ffffff18;
+    padding:78px 22px 28px;
+    display:flex!important;
+    flex-direction:column;
+    align-items:stretch;
+    gap:10px;
+    transition:right .25s ease;
+    z-index:101;
+    overflow-y:auto;
+  }
+  .navlinks.open{right:0}
+  .navlinks a{
+    display:block!important;
+    font-size:14px;
+    padding:13px 14px;
+    border:1px solid #ffffff14;
+    border-radius:14px;
+    background:#111;
+  }
+  .lang-wrap{
+    margin-top:4px;
+    width:100%;
+  }
+  .lang-select{
+    width:100%;
+    max-width:none!important;
+    font-size:12px;
+    padding:12px 34px 12px 14px;
+  }
+  body.menu-open{overflow:hidden}
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"AFTER THE HIGH","url":"https://y2kbeatzz-dot.github.io/After-The-High/","description":"Drug awareness website with fentanyl awareness, overdose prevention, naloxone information, drug facts, and addiction recovery resources.","creator":{"@type":"Person","name":"Crystal"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is fentanyl awareness?","acceptedAnswer":{"@type":"Answer","text":"Fentanyl awareness means understanding that illicit fentanyl can appear in counterfeit pills and other illegal drugs, recognizing opioid overdose warning signs, and knowing that naloxone can reverse an opioid overdose."}},{"@type":"Question","name":"What are common signs of an opioid overdose?","acceptedAnswer":{"@type":"Answer","text":"Signs can include being unable to wake, very slow or stopped breathing, choking or gurgling sounds, and discolored lips or fingertips. If an overdose is suspected, call 911 immediately."}},{"@type":"Question","name":"What does naloxone do?","acceptedAnswer":{"@type":"Answer","text":"Naloxone can temporarily reverse the effects of an opioid overdose. It does not replace emergency care, so 911 should still be called and the person should not be left alone."}},{"@type":"Question","name":"Where can someone find addiction recovery resources?","acceptedAnswer":{"@type":"Answer","text":"AFTER THE HIGH links to official crisis, treatment, poison control, naloxone, and substance-use resources in the Help & Resources section."}},{"@type":"Question","name":"Is this a drug facts website for teens too?","acceptedAnswer":{"@type":"Answer","text":"Yes. The information is written in plain language so teens, young adults, families, educators, and anyone looking for drug awareness information can understand the risks without glamorizing drug use."}}]}]}</script>
 </head>
 <body>
-<nav><span>AFTER THE HIGH.</span><span class="navlinks"><a href="#my-story">MY STORY</a><a href="#music">MUSIC</a><a href="#all-drugs">ALL DRUGS</a><a href="#help">HELP</a><a href="#programs">PROGRAMS</a><a href="#all-ages">ALL AGES</a><a href="#awareness">AWARENESS</a><a href="#faq">FAQ</a><a href="#share">SHARE</a><span class="lang-wrap"><select id="languageSelect" class="lang-select" aria-label="Choose language"><option value="en">English</option><option value="es">Español</option><option value="ru">Русский</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="ar">العربية</option><option value="zh-CN">中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select></span></span></nav>
+<nav><span>AFTER THE HIGH.</span><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button><span class="navlinks" id="navLinks"><a href="#my-story">MY STORY</a><a href="#music">MUSIC</a><a href="#all-drugs">ALL DRUGS</a><a href="#help">HELP</a><a href="#programs">PROGRAMS</a><a href="#all-ages">ALL AGES</a><a href="#awareness">AWARENESS</a><a href="#faq">FAQ</a><a href="#share">SHARE</a><span class="lang-wrap"><select id="languageSelect" class="lang-select" aria-label="Choose language"><option value="en">English</option><option value="es">Español</option><option value="ru">Русский</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="ar">العربية</option><option value="zh-CN">中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select></span></span></nav>
 <header class="hero"><div class="pill p1"></div><div class="pill p2"></div><h1>AFTER<span class="outline">THE HIGH</span></h1><div class="hint">SCROLL TO ENTER ↓</div></header>
 <section class="story"><div class="stage">
 <article class="scene" data-color="#7d1d2b"><div class="copy"><h2>Know what<br>you're facing.</h2><p>Drugs can affect breathing, heart rhythm, temperature, judgment and consciousness. Unknown contents and mixing substances can make the outcome harder to predict.</p></div><div class="visual-rail"></div></article>
@@ -235,6 +304,25 @@ if(languageSelect){
     location.href=translateUrl;
   });
 }
+
+const mobileMenuBtn=document.getElementById('mobileMenuBtn');
+const navLinks=document.getElementById('navLinks');
+if(mobileMenuBtn&&navLinks){
+  const closeMenu=()=>{
+    navLinks.classList.remove('open');
+    document.body.classList.remove('menu-open');
+    mobileMenuBtn.textContent='☰';
+    mobileMenuBtn.setAttribute('aria-label','Open menu');
+  };
+  mobileMenuBtn.addEventListener('click',()=>{
+    const isOpen=navLinks.classList.toggle('open');
+    document.body.classList.toggle('menu-open',isOpen);
+    mobileMenuBtn.textContent=isOpen?'✕':'☰';
+    mobileMenuBtn.setAttribute('aria-label',isOpen?'Close menu':'Open menu');
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  addEventListener('resize',()=>{if(innerWidth>760)closeMenu()});
+}
 </script>
-<script src="sobriety.js?v=programs-all-ages-20260908-1"></script>
+<script src="sobriety.js?v=mobile-nav-20260908-2"></script>
 </body></html>
