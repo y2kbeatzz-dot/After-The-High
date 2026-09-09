@@ -163,11 +163,26 @@ section.block{padding:11vh 6vw}.eyebrow{font-size:12px;letter-spacing:.32em;font
 .youth-callout p{margin:0;color:#c8d3dd;line-height:1.7}
 .vape-help-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:20px}
 
+
+.extension-section{background:linear-gradient(180deg,#070707,#111018 55%,#070707);border-top:1px solid #ffffff14;border-bottom:1px solid #ffffff14}
+.extension-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:5vw;align-items:start}
+.extension-copy p{max-width:820px;color:#c9c9c9;font-size:clamp(16px,1.4vw,20px);line-height:1.75}
+.extension-card{border:1px solid #ffffff1d;background:#0c0c0c;border-radius:22px;padding:26px}
+.extension-card h3{margin:0 0 14px;font-size:30px}
+.install-steps{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none;counter-reset:steps}
+.install-steps li{counter-increment:steps;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;color:#cfcfcf;line-height:1.55}
+.install-steps li:before{content:counter(steps);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#ff6f86;color:#111;font-weight:1000}
+.extension-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.extension-btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 15px;border-radius:999px;background:#fff;color:#111;font-size:13px;font-weight:1000}
+.extension-btn.alt{background:#151515;color:#fff;border:1px solid #ffffff22}
+.extension-note{margin-top:14px;color:#888;font-size:12px;line-height:1.5}
+@media(max-width:850px){.extension-wrap{grid-template-columns:1fr}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","name":"AFTER THE HIGH","url":"https://y2kbeatzz-dot.github.io/After-The-High/","description":"Drug awareness website with fentanyl awareness, overdose prevention, naloxone information, drug facts, and addiction recovery resources.","creator":{"@type":"Person","name":"Crystal"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is fentanyl awareness?","acceptedAnswer":{"@type":"Answer","text":"Fentanyl awareness means understanding that illicit fentanyl can appear in counterfeit pills and other illegal drugs, recognizing opioid overdose warning signs, and knowing that naloxone can reverse an opioid overdose."}},{"@type":"Question","name":"What are common signs of an opioid overdose?","acceptedAnswer":{"@type":"Answer","text":"Signs can include being unable to wake, very slow or stopped breathing, choking or gurgling sounds, and discolored lips or fingertips. If an overdose is suspected, call 911 immediately."}},{"@type":"Question","name":"What does naloxone do?","acceptedAnswer":{"@type":"Answer","text":"Naloxone can temporarily reverse the effects of an opioid overdose. It does not replace emergency care, so 911 should still be called and the person should not be left alone."}},{"@type":"Question","name":"Where can someone find addiction recovery resources?","acceptedAnswer":{"@type":"Answer","text":"AFTER THE HIGH links to official crisis, treatment, poison control, naloxone, and substance-use resources in the Help & Resources section."}},{"@type":"Question","name":"Is this a drug facts website for teens too?","acceptedAnswer":{"@type":"Answer","text":"Yes. The information is written in plain language so teens, young adults, families, educators, and anyone looking for drug awareness information can understand the risks without glamorizing drug use."}},{"@type":"Question","name":"Is vaping safe for kids or teens?","acceptedAnswer":{"@type":"Answer","text":"No tobacco product, including e-cigarettes, is considered safe for children, teens or young adults. Most vapes contain nicotine, which is highly addictive and can affect the developing brain."}},{"@type":"Question","name":"Is vape aerosol just water vapor?","acceptedAnswer":{"@type":"Answer","text":"No. Vape aerosol can contain nicotine, ultrafine particles, flavoring chemicals and other substances. The exact contents vary by product and liquid."}},{"@type":"Question","name":"Can someone become addicted to vaping?","acceptedAnswer":{"@type":"Answer","text":"Yes. Nicotine is highly addictive, and regular use can lead to cravings, withdrawal symptoms and difficulty stopping."}},{"@type":"Question","name":"What should a teen do if they want to quit vaping?","acceptedAnswer":{"@type":"Answer","text":"Free support includes Smokefree Teen, Truth Initiative's EX Program, quitline support and help from a trusted adult or healthcare professional."}},{"@type":"Question","name":"What can parents do if their child is vaping?","acceptedAnswer":{"@type":"Answer","text":"Use a calm conversation, focus on health and nicotine dependence rather than shame, ask what makes quitting difficult, and connect the young person with appropriate support."}}]}]}</script>
 </head>
 <body>
-<nav><span>AFTER THE HIGH.</span><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button><span class="navlinks" id="navLinks"><a href="#my-story">MY STORY</a><a href="#music">MUSIC</a><a href="#all-drugs">ALL DRUGS</a><a href="#vaping">VAPING</a><a href="#help">HELP</a><a href="#programs">PROGRAMS</a><a href="#all-ages">ALL AGES</a><a href="#awareness">AWARENESS</a><a href="#faq">FAQ</a><a href="#share">SHARE</a><span class="lang-wrap"><select id="languageSelect" class="lang-select" aria-label="Choose language"><option value="en">English</option><option value="es">Español</option><option value="ru">Русский</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="ar">العربية</option><option value="zh-CN">中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select></span></span></nav>
+<nav><span>AFTER THE HIGH.</span><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button><span class="navlinks" id="navLinks"><a href="#my-story">MY STORY</a><a href="#music">MUSIC</a><a href="#all-drugs">ALL DRUGS</a><a href="#vaping">VAPING</a><a href="#help">HELP</a><a href="#programs">PROGRAMS</a><a href="#all-ages">ALL AGES</a><a href="#awareness">AWARENESS</a><a href="#faq">FAQ</a><a href="#extension">EXTENSION</a><a href="#share">SHARE</a><span class="lang-wrap"><select id="languageSelect" class="lang-select" aria-label="Choose language"><option value="en">English</option><option value="es">Español</option><option value="ru">Русский</option><option value="fr">Français</option><option value="de">Deutsch</option><option value="pt">Português</option><option value="ar">العربية</option><option value="zh-CN">中文</option><option value="ja">日本語</option><option value="ko">한국어</option></select></span></span></nav>
 <header class="hero"><div class="pill p1"></div><div class="pill p2"></div><h1>AFTER<span class="outline">THE HIGH</span></h1><div class="hint">SCROLL TO ENTER ↓</div></header>
 <section class="story"><div class="stage">
 <article class="scene" data-color="#7d1d2b"><div class="copy"><h2>Know what<br>you're facing.</h2><p>Drugs can affect breathing, heart rhythm, temperature, judgment and consciousness. Unknown contents and mixing substances can make the outcome harder to predict.</p></div><div class="visual-rail"></div></article>
@@ -441,6 +456,36 @@ section.block{padding:11vh 6vw}.eyebrow{font-size:12px;letter-spacing:.32em;font
 </div>
 </section>
 
+
+<section class="block extension-section" id="extension">
+  <div class="eyebrow">AFTER THE HIGH · CHROME EXTENSION</div>
+  <div class="extension-wrap">
+    <div class="extension-copy">
+      <h2 class="bigtitle">KEEP THE SITE<br>ONE CLICK AWAY.</h2>
+      <p>The AFTER THE HIGH Chrome extension gives you quick access to the full website and direct buttons for My Story, All Drugs, Vaping, Recovery Programs, Help, and FAQ.</p>
+      <p>It is designed as a shortcut and awareness tool. It does not replace emergency services, treatment, medical care, or professional support.</p>
+      <div class="extension-actions">
+        <a class="extension-btn" href="after-the-high-extension.zip" download>Download Chrome Extension</a>
+        <a class="extension-btn alt" target="_blank" rel="noopener" href="https://y2kbeatzz-dot.github.io/After-The-High/">Open Full Website</a>
+      </div>
+      <p class="extension-note">Chrome may show a warning when installing an unpacked extension because this version is installed manually and is not from the Chrome Web Store.</p>
+    </div>
+
+    <aside class="extension-card">
+      <h3>How to install it</h3>
+      <ol class="install-steps">
+        <li><span>Download the extension ZIP above.</span></li>
+        <li><span>Open the ZIP and extract the <b>after-the-high-extension</b> folder.</span></li>
+        <li><span>In Chrome, open <b>chrome://extensions/</b>.</span></li>
+        <li><span>Turn on <b>Developer mode</b> in the top-right corner.</span></li>
+        <li><span>Click <b>Load unpacked</b>.</span></li>
+        <li><span>Select the extracted <b>after-the-high-extension</b> folder.</span></li>
+        <li><span>Pin AFTER THE HIGH from Chrome's extensions menu if you want it visible on the toolbar.</span></li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
 <section class="block share" id="share"><div class="share-wrap"><div><div class="eyebrow">HELP THIS REACH SOMEONE</div><h2 class="bigtitle">SHARE<br>AFTER THE HIGH.</h2><p>If this page taught you something, made you feel understood, or could help someone you know, send it to them. Awareness only works when people actually see it.</p><div class="share-buttons"><button class="share-btn" id="copyLink">Copy link</button><a class="share-btn" target="_blank" rel="noopener" href="https://www.reddit.com/submit?url=https%3A%2F%2Fy2kbeatzz-dot.github.io%2FAfter-The-High%2F&title=AFTER%20THE%20HIGH%20-%20Drug%20Awareness%20%26%20Recovery">Reddit</a><a class="share-btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=AFTER%20THE%20HIGH%20-%20Drug%20Awareness%20%26%20Recovery&url=https%3A%2F%2Fy2kbeatzz-dot.github.io%2FAfter-The-High%2F">X / Twitter</a><a class="share-btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fy2kbeatzz-dot.github.io%2FAfter-The-High%2F">Facebook</a></div></div><aside class="promo-card"><div class="eyebrow">CREATED BY CRYSTAL</div><strong>Drug facts can tell you what happened. Stories can make people care.</strong><p>Use the link in a bio, Discord server, school resource page, recovery group, community page, or social post. The more real people and trusted pages that link to AFTER THE HIGH, the easier it is for search engines to discover and understand the site.</p></aside></div></section>
 <footer class="credit"><strong>Created & designed by Crystal</strong><span>AFTER THE HIGH · Independent drug-awareness & recovery project · © 2026</span></footer><div class="toast" id="toast">Link copied</div>
 <script>const story=document.querySelector('.story'),stage=document.querySelector('.stage'),scenes=[...document.querySelectorAll('.scene')];let busy=0;function draw(){const r=story.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/Math.max(1,story.offsetHeight-innerHeight))),pos=p*(scenes.length-1),active=Math.max(0,Math.min(scenes.length-1,Math.round(pos)));stage.style.setProperty('--c',scenes[active].dataset.color||'#7d1d2b');scenes.forEach((scene,i)=>{const d=i-pos,a=Math.abs(d);scene.style.opacity=Math.max(0,1-a*1.35);scene.style.visibility=a>1.15?'hidden':'visible';scene.style.transform=`translate3d(0,${d*70}px,0)`;const obj=scene.querySelector('.obj');if(obj){obj.style.opacity=Math.max(0,1-a*1.7);obj.style.transform=`translate3d(${d*55}px,${Math.sin(pos+i)*8}px,${(1-a)*70}px) rotateY(${d*-25}deg) rotateZ(${d*8}deg)`}});busy=0}addEventListener('scroll',()=>{if(!busy){busy=1;requestAnimationFrame(draw)}},{passive:true});addEventListener('resize',draw);draw();const site='https://y2kbeatzz-dot.github.io/After-The-High/';const title='AFTER THE HIGH — Drug Awareness & Recovery';const text='Drug awareness, overdose prevention, recovery, music and real help resources. Created by Crystal.';document.getElementById('copyLink').onclick=async()=>{try{await navigator.clipboard.writeText(site)}catch{prompt('Copy this link:',site)}const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)};
@@ -479,5 +524,5 @@ if(mobileMenuBtn&&navLinks){
   addEventListener('resize',()=>{if(innerWidth>760)closeMenu()});
 }
 </script>
-<script src="sobriety.js?v=vaping-faq-placement-20260908-4"></script>
+<script src="sobriety.js?v=extension-section-20260909-1"></script>
 </body></html>
