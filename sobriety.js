@@ -1,7 +1,11 @@
 (() => {
+  // Remove the old script-generated quit-tools section if the real homepage section exists.
+  const builtInQuitTools = document.querySelector('#quit-tools');
+  const legacyQuitTools = document.querySelector('#nicotine-quit-tools');
+  if (builtInQuitTools && legacyQuitTools) legacyQuitTools.remove();
+
   // Main content now lives directly in index.html. This file only adds
   // lightweight behavior/analytics and UI fixes.
-
   const soberSince = new Date('2025-04-17T00:52:12-04:00');
   const root = document.querySelector('#sobriety-live');
   if (root) {
