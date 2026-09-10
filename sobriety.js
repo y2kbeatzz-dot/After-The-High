@@ -1,4 +1,20 @@
 (() => {
+  // MY STORY song: Lobster Pizza (requested exact YouTube video)
+  const storySong = document.querySelector('#my-story .song');
+  if (storySong) {
+    const title = storySong.querySelector('h3');
+    const desc = storySong.querySelector('.songcopy p');
+    const frame = storySong.querySelector('iframe');
+    if (title) title.textContent = 'Lobster Pizza';
+    if (desc) desc.textContent = 'I put this here because this song connects with the addiction and recovery part of my story in a way that is hard for me to explain with words alone.';
+    if (frame) {
+      frame.src = 'https://www.youtube.com/embed/ggpwEJ4nwc0?playsinline=1&rel=0';
+      frame.title = 'Lobster Pizza';
+      frame.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      frame.setAttribute('allowfullscreen', '');
+    }
+  }
+
   // Remove the old script-generated quit-tools section if the real homepage section exists.
   const builtInQuitTools = document.querySelector('#quit-tools');
   const legacyQuitTools = document.querySelector('#nicotine-quit-tools');
@@ -20,7 +36,6 @@
     tick();setInterval(tick,1000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});addEventListener('pageshow',tick);addEventListener('focus',tick);
   }
 
-  // Fix the nicotine quit-tools grid and make the section easy to jump to.
   if (!document.querySelector('#quit-tools-ui-fix')) {
     const style = document.createElement('style');
     style.id = 'quit-tools-ui-fix';
@@ -57,7 +72,6 @@
     vaping.appendChild(wrap);
   }
 
-  // Analytics.
   if(!document.querySelector('script[data-goatcounter]')){
     window.goatcounter = window.goatcounter || {};
     window.goatcounter.path = () => '/';
