@@ -15,13 +15,56 @@
     }
   }
 
+  // Fix MY STORY heading/counter overlap on desktop + mobile.
+  if (!document.querySelector('#my-story-layout-fix')) {
+    const storyStyle = document.createElement('style');
+    storyStyle.id = 'my-story-layout-fix';
+    storyStyle.textContent = `
+      #my-story .bigtitle{
+        margin-bottom:clamp(34px,5vw,72px)!important;
+        line-height:.88!important;
+        max-width:1200px!important;
+      }
+      #my-story .sobriety-row{
+        position:relative!important;
+        z-index:1!important;
+        margin:0 0 46px!important;
+        width:min(100%,650px)!important;
+        max-width:650px!important;
+        min-height:116px!important;
+        height:auto!important;
+        padding:22px 30px!important;
+        display:flex!important;
+        align-items:center!important;
+        gap:12px!important;
+        font-size:clamp(38px,5vw,72px)!important;
+        line-height:1!important;
+        overflow:hidden!important;
+      }
+      #my-story .sobriety-row span{
+        position:static!important;
+        transform:none!important;
+        line-height:1!important;
+      }
+      #my-story .recovery-wrap{margin-top:8px!important}
+      @media(max-width:900px){
+        #my-story .bigtitle{font-size:clamp(54px,13vw,100px)!important;margin-bottom:30px!important}
+        #my-story .sobriety-row{width:100%!important;min-height:98px!important;padding:20px 24px!important;font-size:clamp(34px,9vw,58px)!important;margin-bottom:34px!important}
+      }
+      @media(max-width:560px){
+        #my-story{padding-top:90px!important}
+        #my-story .bigtitle{font-size:clamp(48px,14vw,76px)!important;line-height:.9!important;margin-bottom:26px!important}
+        #my-story .sobriety-row{min-height:88px!important;padding:18px 20px!important;font-size:clamp(30px,10vw,48px)!important;border-radius:16px!important}
+      }
+    `;
+    document.head.appendChild(storyStyle);
+  }
+
   // Remove the old script-generated quit-tools section if the real homepage section exists.
   const builtInQuitTools = document.querySelector('#quit-tools');
   const legacyQuitTools = document.querySelector('#nicotine-quit-tools');
   if (builtInQuitTools && legacyQuitTools) legacyQuitTools.remove();
 
-  // Main content now lives directly in index.html. This file only adds
-  // lightweight behavior/analytics and UI fixes.
   const soberSince = new Date('2025-04-17T00:52:12-04:00');
   const root = document.querySelector('#sobriety-live');
   if (root) {
